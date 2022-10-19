@@ -20,16 +20,6 @@ body{
     background-color: #2A3042;
 }
 
-#bigcirclelogin{
-    margin-top: 17rem;
-    margin-left: 43rem;
-    background-color: #2A3042;
-    width: 100vw;
-    height: 100vh;
-    border: 1px solid #2A3042;
-    border-radius: 700%;
-}
-
 #thelogin{
     color: #ffffff;
     margin-top: 3.5rem;
