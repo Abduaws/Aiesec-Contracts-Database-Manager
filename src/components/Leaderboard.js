@@ -6,7 +6,7 @@ import { MdLeaderboard } from 'react-icons/md'
 function Leaderboard() {
   return (
     <div>
-      <Container fluid style={{width:"100%", paddingLeft:"3rem", paddingTop:"2rem"}}>
+      <Container fluid style={{width:"100%"}}>
         <Row>
           <Col>
           <span style={{marginLeft:"6.3rem", fontSize:"xx-large", fontWeight:"bold"}}>Current Rank One: Abduaws <BiCrown style={{color:"gold"}}/></span><br />
@@ -17,7 +17,8 @@ function Leaderboard() {
           <Container style={{width:"85%",overflow:"scroll"}} id="profilebox">
           <Row style={{marginTop:"0.5rem"}}>
               <Col>
-              <Table striped bordered hover variant="dark">
+              <div style={{border:"4px solid #212529", borderRadius:"2%", background:"#212529", height:"98%"}}>
+              <Table style={{textAlign:"center"}} striped bordered hover variant="dark">
                 <thead>
                   <tr>
                     <th style={{textAlign:"center"}} colSpan={4}><MdLeaderboard style={{marginRight:"1rem"}}></MdLeaderboard>LeaderBoard</th>
@@ -98,6 +99,7 @@ function Leaderboard() {
                   </tr>
                 </tbody>
               </Table>
+              </div>
               </Col>
           </Row>
           </Container>

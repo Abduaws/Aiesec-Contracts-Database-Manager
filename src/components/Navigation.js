@@ -11,10 +11,10 @@ function Navigation({toggleShow}) {
     const [width, setWidth] = useState(0);
     const [x, setX] = useState(0);
     return (
-        <Navbar fixed="top" style={{background:"#2A3042"}} expand="lg">
+        <Navbar sticky="top" style={{background:"#2A3042", width:"100vw"}} expand="lg">
         <Container fluid>
             <motion.div animate={{ x }}>
-            <Navbar.Brand href="#"><Button style={{margin:"0", border:"1px solid #a6b0cf"}} id="myanim" variant='light' onClick={()=>{(x==245) ? setX(0) : setX(245);toggleShow()}}><FaBars/></Button></Navbar.Brand>
+            <Navbar.Brand><Button style={{margin:"0", border:"1px solid #a6b0cf"}} id="myanim" variant='light' onClick={()=>{(x==245) ? setX(0) : setX(245);toggleShow()}}><FaBars/></Button></Navbar.Brand>
             </motion.div>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll"> 
@@ -32,7 +32,7 @@ function Navigation({toggleShow}) {
                 />
             </Form>
             </motion.div>
-            <Button onClick={()=>{(width===300) ? setWidth(0) : setWidth(300);setDisable(!disable);console.log(disable)}} style={{margin:"0", border:"1px solid #a6b0cf"}} id="myanim" variant='light'><FaSearch/></Button>
+            <Button onClick={()=>{(width===300) ? setWidth(0) : setWidth(300);setDisable(!disable);console.log(disable)}} style={{margin:"0", border:"1px solid #a6b0cf", marginRight:"1rem"}} id="myanim" variant='light'><FaSearch/></Button>
             </Nav>
             </Navbar.Collapse>
         </Container>

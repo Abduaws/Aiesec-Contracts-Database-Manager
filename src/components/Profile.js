@@ -7,7 +7,7 @@ function Profile() {
   const [disable, setDisable] = useState({"uname":true, "email":true, "fname":true, "lname":true, "pn":true})
   return (
     <div>
-      <Container style={{width:"100%", paddingLeft:"3rem", paddingTop:"5rem"}}>
+      <Container style={{width:"100%"}}>
         <Row>
           <Col>
           <span style={{fontSize:"xx-large", fontWeight:"bold"}}>Your Profile</span>
