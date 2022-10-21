@@ -71,3 +71,11 @@ body{
     -moz-box-shadow: 1px 3px 13px 2px rgba(0,0,0,0.75);
     border-radius: 10px;
 }
+
+#contractbox{
+    background-color: #212529;
+    box-shadow: 1px 3px 13px 2px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 1px 3px 13px 2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 3px 13px 2px rgba(0,0,0,0.75);
+    border-radius: 10px;
+}
