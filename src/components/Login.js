@@ -13,7 +13,7 @@ function Login({setShowlogin, showlogin}) {
         <motion.div animate={{scale}}>
         <div id="thelogin">
           <Form style={{marginLeft:"14rem", marginTop:"3rem", width:"50%"}}>
-            <img src="./images/companylogo4.png" alt="..." width="100%"/><br />
+            <img src="https://i.imgur.com/Srsg9So.png" alt="..." width="100%"/><br />
             <span style={{marginLeft:"7rem", transform: "translate(0px, 10px)"}}>Database & Contract Manager</span>
             <h3 style={{marginTop:"2rem", textAlign:"center"}}>Welcome Back!</h3>
             <Form.Group style={{marginTop:"4rem"}} className="mb-3" controlId="formBasicEmail">

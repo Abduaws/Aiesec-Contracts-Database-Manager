@@ -22,7 +22,7 @@ function Dashboard() {
   return (
     <div>
       <Container fluid style={{background:"#F3F3F9", width:"100vw", height:"100vh", padding:"0", marginTop:"-1rem"}}>
-        <div style={{width:"95vw", marginLeft:"2rem", border:"4px solid #2A3042", borderRadius:"5px", backgroundColor:"#2A3042"}}><img style={{width:"100%", transform:"scaleY(1.07)"}} src="./images/welcomedash.png" alt="..." /></div>
+        <div style={{width:"95vw", marginLeft:"2rem", border:"4px solid #2A3042", borderRadius:"5px", backgroundColor:"#2A3042"}}><img style={{width:"100%", transform:"scaleY(1.07)"}} src="https://i.imgur.com/4I5gzk0.png" alt="..." /></div>
         <Row style={{width:"95%", marginLeft:"2rem", padding:"0"}}>
           <Col style={{padding:"0"}}>
             <Container fluid style={{width:"95%", padding:"0"}}>
