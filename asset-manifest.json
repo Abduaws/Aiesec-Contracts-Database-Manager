@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Aiesec-Contracts-Database-Manager/static/css/main.f079bb2e.css",
+    "main.js": "/Aiesec-Contracts-Database-Manager/static/js/main.a1a907ca.js",
+    "index.html": "/Aiesec-Contracts-Database-Manager/index.html",
+    "main.f079bb2e.css.map": "/Aiesec-Contracts-Database-Manager/static/css/main.f079bb2e.css.map",
+    "main.a1a907ca.js.map": "/Aiesec-Contracts-Database-Manager/static/js/main.a1a907ca.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f079bb2e.css",
+    "static/js/main.a1a907ca.js"
+  ]
+}
