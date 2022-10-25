@@ -9,7 +9,7 @@ function SideBar({ setShowlogin }) {
   const navigate = useNavigate();
   return (
     <ProSidebarProvider id="myanim">
-      <img id='myanim' src="companylogo2.png" alt="..." width="80%"/>
+      <img id='myanim' src=" ./images/companylogo2.png" alt="..." width="80%"/>
       <Sidebar backgroundColor={"#2A3042"} style={{height:"100%"}}>
         <Menu>
           <MenuItem as={Link} to="/Dashboard" id='myanim' icon={<AiFillDashboard/>}>
