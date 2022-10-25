@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Aiesec-Contracts-Database-Manager/static/css/main.f079bb2e.css",
-    "main.js": "/Aiesec-Contracts-Database-Manager/static/js/main.7c4b2505.js",
+    "main.js": "/Aiesec-Contracts-Database-Manager/static/js/main.db420b16.js",
     "index.html": "/Aiesec-Contracts-Database-Manager/index.html",
     "main.f079bb2e.css.map": "/Aiesec-Contracts-Database-Manager/static/css/main.f079bb2e.css.map",
-    "main.7c4b2505.js.map": "/Aiesec-Contracts-Database-Manager/static/js/main.7c4b2505.js.map"
+    "main.db420b16.js.map": "/Aiesec-Contracts-Database-Manager/static/js/main.db420b16.js.map"
   },
   "entrypoints": [
     "static/css/main.f079bb2e.css",
-    "static/js/main.7c4b2505.js"
+    "static/js/main.db420b16.js"
   ]
 }
