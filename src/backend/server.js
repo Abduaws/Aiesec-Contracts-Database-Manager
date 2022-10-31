@@ -2,11 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoutes');
 const contractRoutes = require('./routes/contractRoutes');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const app = express();
 
-const dburl = `${process.env.MONGODB_URI}`
-mongoose.connect(dburl, { useNewUrlParser: true , useUnifiedTopology: true })
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true , useUnifiedTopology: true })
     .then((res) => {
         console.log('Connected to DB')
         app.listen(3001);
