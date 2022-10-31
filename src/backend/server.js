@@ -5,7 +5,7 @@ const contractRoutes = require('./routes/contractRoutes');
 
 const app = express();
 
-const dburl = 'mongodb+srv://zerocode:aisecdb@aisecdb.egf3mxe.mongodb.net/aisec?retryWrites=true&w=majority'  
+const dburl = 
 mongoose.connect(dburl, { useNewUrlParser: true , useUnifiedTopology: true })
     .then((res) => {
         console.log('Connected to DB')
