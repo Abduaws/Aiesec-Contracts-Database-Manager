@@ -5,7 +5,7 @@ const contractRoutes = require('./routes/contractRoutes');
 
 const app = express();
 
-const dburl = 
+const dburl = `${process.env.MONGODB_URI}`
 mongoose.connect(dburl, { useNewUrlParser: true , useUnifiedTopology: true })
     .then((res) => {
         console.log('Connected to DB')
