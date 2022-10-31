@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 const contractsController = require('../controllers/contractsController');
 
-router.get('/create', contractsController.contract_create);
+router.get('/all', contractsController.contracts_get);
+
+router.post('/create', contractsController.contract_create);
   
 router.get('/:id', contractsController.contract_details);
   

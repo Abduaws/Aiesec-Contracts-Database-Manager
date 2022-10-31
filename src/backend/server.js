@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoutes');
 const contractRoutes = require('./routes/contractRoutes');
 const dotenv = require('dotenv');
+const cors = require('cors');
 dotenv.config();
 
 const app = express();
@@ -16,6 +17,8 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true , useUnifiedTo
 
 app.use(express.static('public'));
 app.use(express.urlencoded( { extended: true } ));
+app.use(express.json());
+app.use(cors({origin:"*", credentials:true, optionsSuccessStatus:200}));
 
 app.use('/api/users', userRoutes);
 app.use('/api/contracts', contractRoutes);
