@@ -33,21 +33,6 @@ function Navigation({toggleShow}) {
             </Form>
             </motion.div>
             <Button onClick={()=>{(width===300) ? setWidth(0) : setWidth(300);setDisable(!disable);console.log(disable)}} style={{margin:"0", border:"1px solid #a6b0cf", marginRight:"1rem"}} id="myanim" variant='light'><FaSearch/></Button>
-            <Button onClick={async ()=>{
-                fetch('http://localhost:3001/api/users/all', {
-                    method: 'GET'
-                }).then((res)=>{
-                    res.json().then((data)=>{
-                        console.log(data)
-                    })
-                }).then(async ()=>{
-                    fetch('http://localhost:3001/api/contracts/create', {
-                    method: 'POST',
-                    body: JSON.stringify({name:"ahmed", rank:0}),
-                    headers: {'Content-Type': 'application/json'}
-                    })
-                })
-            }} style={{margin:"0", border:"1px solid #a6b0cf", marginRight:"1rem"}} id="myanim" variant='light'><FaSearch/></Button>
             </Nav>
             </Navbar.Collapse>
         </Container>

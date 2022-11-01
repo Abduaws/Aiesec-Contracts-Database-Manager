@@ -1,7 +1,14 @@
 import React from 'react'
 import { Container, Row, Col, Table } from 'react-bootstrap'
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
 
-function Contracts() {
+function Contracts({loggedin}) {
+  const navigate = useNavigate();
+
+  useEffect(()=>{
+    if(!loggedin){navigate('/')}
+  })
   return (
     <div>
       <Container style={{width:"95%", marginTop:"-1rem", padding:"0", overflow:"scroll", height:"90vh"}} id="contractbox" fluid>

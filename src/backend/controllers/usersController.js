@@ -20,8 +20,16 @@ const user_details = async (req, res) => {
         res.send(JSON.stringify(user))
     }
 }
-const user_delete = (req, res) => {
-
+const user_modify = async (req, res) => {
+    const userdata = req.body
+    if(await User.exists({email:userdata.email})){
+        const user = await User.where("email").equals(userdata.email)
+        user[0].username = userdata.username
+        user[0].pn = userdata.pn
+        user[0].fname = userdata.fname
+        user[0].lname = userdata.lname
+        await user[0].save();
+    }
 }
 
 const user_authenticate = async (req, res) => {
@@ -45,5 +53,5 @@ module.exports = {
     users_get,
     user_create,
     user_details,
-    user_delete
+    user_modify
 }

@@ -7,11 +7,14 @@ import { animate } from 'framer-motion';
 import Contractswidget from './Contractswidget';
 import Leaderboardwidget from './Leaderboardwidget';
 import LatestContractswidget from './LatestContractswidget';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
 
-function Dashboard() {
+function Dashboard({user, loggedin}) {
   const [percentage, setPercentage] = useState(0);
   const [color, setColor] = useState("red")
   const [variant, setVariant] = useState("danger")
+  const navigate = useNavigate();
 
   const handleprogress = () => {
     animate(0, 100, {duration:14, onUpdate: num => {setPercentage(Math.ceil(num));
@@ -19,6 +22,9 @@ function Dashboard() {
     }, repeatType:"reverse", repeat:Infinity, ease:"linear"})
   }
 
+  useEffect(()=>{
+    if(!loggedin){navigate('/')}
+  })
   return (
     <div>
       <Container fluid style={{background:"#F3F3F9", width:"100vw", height:"100vh", padding:"0", marginTop:"-1rem"}}>

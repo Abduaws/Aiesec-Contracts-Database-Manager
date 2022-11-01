@@ -2,8 +2,14 @@ import React from 'react'
 import { Container, Table, Row, Col } from 'react-bootstrap'
 import { BiCrown } from 'react-icons/bi'
 import { MdLeaderboard } from 'react-icons/md'
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
 
-function Leaderboard() {
+function Leaderboard({user, loggedin}) {
+  const navigate = useNavigate();
+  useEffect(()=>{
+    if(!loggedin){navigate('/')}
+  })
   return (
     <div>
       <Container fluid style={{width:"100%"}}>

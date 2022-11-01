@@ -15,26 +15,27 @@ import { Offcanvas } from 'react-bootstrap'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 function App() {
+  const [user, setUser] = useState({username:"Noob", password:"", email:"", fname: "John", lname: "Doe", rank: 0, completedcontracts: 0, failedcontracts: 0, ongoingcontracts: 0, pn:"000000000"});
+  const [loggedin, setLoggedin] = useState(false)
   const [sidebarshow, setSidebarshow] = useState(false);
   const [showlogin, setShowlogin] = useState(true);
   const toggleShow = () => setSidebarshow((s) => !s);
   return (
     <BrowserRouter>
-    <Login showlogin={showlogin} setShowlogin={setShowlogin}></Login>
     <div className="App" style={{overflow:"scroll", background:"#F3F3F9"}}>
       <Navigation toggleShow={toggleShow}></Navigation> 
       <Offcanvas id="myanim" backdrop={false} scroll={true} show={sidebarshow}style={{margin:"0", padding:"0", width:"250px", overflow:"hidden", border:"1px solid #2A3042"}}>
         <Offcanvas.Body style={{margin:"0", padding:"0", overflow:"hidden"}}>
-          <SideBar setShowlogin={setShowlogin}/>
+          <SideBar setLoggedin={setLoggedin} setShowlogin={setShowlogin}/>
         </Offcanvas.Body>
       </Offcanvas>
       <div style={{marginTop:"3.3rem", width:"100vw"}}>
         <Routes>
-                <Route exact path="/" element={true ? <Navigate to="/Dashboard" /> : <Navigate to="/Profile" />}/>
-                <Route path="/Dashboard" element={<Dashboard/>}/>
-                <Route path="/Contracts" element={<Contracts/>}/>
-                <Route path="/Leaderboard" element={<Leaderboard/>}/>
-                <Route path="/Profile" element={<Profile/>}/>
+                <Route exact path="/" element={<Login setLoggedin={setLoggedin} setUser={setUser} showlogin={showlogin} setShowlogin={setShowlogin}/>}/>
+                <Route path="/Dashboard" element={<Dashboard loggedin={loggedin} user={user}/>}/>
+                <Route path="/Contracts" element={<Contracts loggedin={loggedin}/>}/>
+                <Route path="/Leaderboard" element={<Leaderboard loggedin={loggedin} user={user}/>}/>
+                <Route path="/Profile" element={<Profile setUser={setUser} loggedin={loggedin} user={user}/>}/>
                 <Route path="*" element={<Navigate to="/"/>}/>
         </Routes>
       </div>

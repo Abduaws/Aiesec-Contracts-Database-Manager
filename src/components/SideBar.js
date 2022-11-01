@@ -5,7 +5,7 @@ import { AiFillDashboard, AiOutlinePoweroff } from 'react-icons/ai'
 import { FaFileContract } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
 
-function SideBar({ setShowlogin }) {
+function SideBar({ setShowlogin, setLoggedin }) {
   const navigate = useNavigate();
   return (
     <ProSidebarProvider id="myanim">
@@ -24,7 +24,7 @@ function SideBar({ setShowlogin }) {
           <MenuItem as={Link} to="/Profile" id='myanim' icon={<BsFillPersonFill/>}>
             Profile
           </MenuItem>
-          <MenuItem onClick={()=>{setShowlogin(true);navigate("/")}} id='myanim' icon={<AiOutlinePoweroff/>}>
+          <MenuItem onClick={()=>{setShowlogin(true);setLoggedin(false);navigate("/")}} id='myanim' icon={<AiOutlinePoweroff/>}>
             Sign Out
           </MenuItem>
         </Menu>

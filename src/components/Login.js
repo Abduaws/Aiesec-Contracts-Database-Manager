@@ -3,14 +3,16 @@ import { Button, Modal, Form,  } from 'react-bootstrap'
 import { useState } from 'react'
 import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai'
 import { motion } from "framer-motion"
+import { useNavigate } from 'react-router-dom'
 
-function Login({setShowlogin, showlogin}) {
+function Login({setShowlogin, showlogin, setUser, setLoggedin}) {
   const [passtype, setPasstype] = useState("password");
   const [scale, setScale] = useState(1);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isInvalid, setIsivalid] = useState({"email":false,"password":false});
   const [errMSG, setErrMSG] = useState({"email":"","password":""});
+  const navigate = useNavigate();
 
   
   const handleLogin = () => {
@@ -25,7 +27,16 @@ function Login({setShowlogin, showlogin}) {
       if (data.status == "OK"){
         setIsivalid({"email":false,"password":false})
         setErrMSG({"email":"","password":""})
+        fetch(`http://localhost:3001/api/users/details/${email}`, {
+            method: 'GET'
+        }).then((res)=>{
+            res.json().then((data)=>{
+              setUser(data[0])
+            })
+        })
         setScale(0);setTimeout(()=>{setShowlogin(false);setScale(1)}, 200)
+        setLoggedin(true)
+        setTimeout(()=>{navigate("/Profile")}, 400)
       }
       else{
         setIsivalid({"email":true,"password":true})
@@ -49,6 +60,8 @@ function Login({setShowlogin, showlogin}) {
           setIsivalid({"email":false,"password":false})
           setErrMSG({"email":"","password":""})
           setScale(0);setTimeout(()=>{setShowlogin(false);setScale(1)}, 200)
+          setLoggedin(true)
+          setTimeout(()=>{navigate("/Profile")}, 400)
         }
         else{
           setIsivalid({"email":true,"password":isInvalid["password"]})
