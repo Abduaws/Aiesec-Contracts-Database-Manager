@@ -1,9 +1,13 @@
 import React from 'react'
-import { Container, Row, Col, Table } from 'react-bootstrap'
-import { useEffect } from 'react';
+import { Container, Row, Col, Table, ProgressBar, Button, Form, Nav, Navbar } from 'react-bootstrap'
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'
+import { motion } from "framer-motion"
+import { FaSearch } from 'react-icons/fa'
 
 function Contracts({loggedin}) {
+  const [disable, setDisable] = useState(true);
+  const [width, setWidth] = useState(0);
   const navigate = useNavigate();
 
   useEffect(()=>{
@@ -18,111 +22,146 @@ function Contracts({loggedin}) {
               <Table style={{textAlign:"center"}} striped bordered hover variant="dark">
                 <thead>
                   <tr>
-                    <th style={{textAlign:"center"}} colSpan={4}></th>
+                    <th style={{textAlign:"center"}} colSpan={5}>
+                      <Navbar>
+                        <Nav style={{marginLeft:"1rem", fontSize:"x-large"}} className='me-auto my-2 my-lg-0'>Contracts</Nav>
+                        <Nav style={{justifyContent:"flex-end"}}>
+                          <motion.div initial={{width:0}} animate={{ width }}>
+                          <Form className="d-flex">
+                              <Form.Control
+                              type="search"
+                              placeholder="Search"
+                              className="me-2"
+                              aria-label="Search"
+                              hidden = {disable}
+                              />
+                          </Form>
+                          </motion.div>
+                          <Button onClick={()=>{(width===300) ? setWidth(0) : setWidth(300);setDisable(!disable);console.log(disable)}} style={{margin:"0", border:"1px solid #a6b0cf", marginRight:"1rem"}} variant='light'><FaSearch/></Button>
+                        </Nav>  
+                      </Navbar>
+                    </th>
                   </tr>
                   <tr>
                     <th>#</th>
-                    <th>Username</th>
-                    <th>No of Contracts Completed</th>
-                    <th>Score</th>
+                    <th>Company Name</th>
+                    <th>Procured By</th>
+                    <th>Status</th>
+                    <th>Progress</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>1</td>
+                    <td>AISEC</td>
                     <td>Abduaws</td>
-                    <td>10</td>
-                    <td>100</td>
+                    <td>OnGoing</td>
+                    <td><ProgressBar label={`${90}%`} style={{marginBottom:"0.5rem"}} animated variant={"success"} now={90} /></td>
                   </tr>
                   <tr>
                     <td>2</td>
+                    <td>AISEC</td>
                     <td>TeraByte</td>
-                    <td>9</td>
-                    <td>90</td>
+                    <td>OnGoing</td>
+                    <td><ProgressBar label={`${90}%`} style={{marginBottom:"0.5rem"}} animated variant={"success"} now={90} /></td>
                   </tr>
                   <tr>
                     <td>3</td>
+                    <td>AISEC</td>
                     <td>Shehab</td>
-                    <td>8</td>
-                    <td>80</td>
+                    <td>OnGoing</td>
+                    <td><ProgressBar label={`${90}%`} style={{marginBottom:"0.5rem"}} animated variant={"success"} now={90} /></td>
                   </tr>
                   <tr>
                     <td>4</td>
+                    <td>AISEC</td>
                     <td>Sa3eed</td>
-                    <td>7</td>
-                    <td>70</td>
+                    <td>Failed</td>
+                    <td><ProgressBar label={`Failed`} style={{marginBottom:"0.5rem"}} variant={"danger"} now={100} /></td>
                   </tr>
                   <tr>
                     <td>5</td>
+                    <td>AISEC</td>
                     <td>Osama Leesho</td>
-                    <td>6</td>
-                    <td>60</td>
+                    <td>OnGoing</td>
+                    <td><ProgressBar label={`${90}%`} style={{marginBottom:"0.5rem"}} animated variant={"success"} now={90} /></td>
                   </tr>
                   <tr>
                     <td>6</td>
+                    <td>AISEC</td>
                     <td>Undefined</td>
-                    <td>5</td>
-                    <td>50</td>
+                    <td>Completed</td>
+                    <td><ProgressBar label={`Completed`} style={{marginBottom:"0.5rem"}} variant={"success"} now={100} /></td>
                   </tr>
                   <tr>
                     <td>7</td>
+                    <td>AISEC</td>
                     <td>Adham</td>
-                    <td>4</td>
-                    <td>40</td>
+                    <td>OnGoing</td>
+                    <td><ProgressBar label={`${80}%`} style={{marginBottom:"0.5rem"}} animated variant={"success"} now={80} /></td>
                   </tr>
                   <tr>
                     <td>8</td>
+                    <td>AISEC</td>
                     <td>Omar</td>
-                    <td>3</td>
-                    <td>30</td>
+                    <td>OnGoing</td>
+                    <td><ProgressBar label={`${75}%`} style={{marginBottom:"0.5rem"}} animated variant={"success"} now={75} /></td>
                   </tr>
                   <tr>
                     <td>9</td>
+                    <td>AISEC</td>
                     <td>Mohammed</td>
-                    <td>2</td>
-                    <td>20</td>
+                    <td>OnGoing</td>
+                    <td><ProgressBar label={`${70}%`} style={{marginBottom:"0.5rem"}} animated variant={"warning"} now={70} /></td>
                   </tr>
                   <tr>
                     <td>10</td>
+                    <td>AISEC</td>
                     <td>Osama el tany</td>
-                    <td>1</td>
-                    <td>10</td>
+                    <td>OnGoing</td>
+                    <td><ProgressBar label={`${65}%`} style={{marginBottom:"0.5rem"}} animated variant={"warning"} now={65} /></td>
                   </tr>
                   <tr>
                     <td>11</td>
+                    <td>AISEC</td>
                     <td>Abdelraof</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>OnGoing</td>
+                    <td><ProgressBar label={`${60}%`} style={{marginBottom:"0.5rem"}} animated variant={"warning"} now={60} /></td>
                   </tr>
                   <tr>
-                    <td>11</td>
+                    <td>12</td>
+                    <td>AISEC</td>
                     <td>Abdelraof</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>OnGoing</td>
+                    <td><ProgressBar label={`${55}%`} style={{marginBottom:"0.5rem"}} animated variant={"warning"} now={55} /></td>
                   </tr>
                   <tr>
-                    <td>11</td>
+                    <td>13</td>
+                    <td>AISEC</td>
                     <td>Abdelraof</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>OnGoing</td>
+                    <td><ProgressBar label={`${50}%`} style={{marginBottom:"0.5rem"}} animated variant={"danger"} now={50} /></td>
                   </tr>
                   <tr>
-                    <td>11</td>
+                    <td>14</td>
+                    <td>AISEC</td>
                     <td>Abdelraof</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>OnGoing</td>
+                    <td><ProgressBar label={`${40}%`} style={{marginBottom:"0.5rem"}} animated variant={"danger"} now={40} /></td>
                   </tr>
                   <tr>
-                    <td>11</td>
+                    <td>15</td>
+                    <td>AISEC</td>
                     <td>Abdelraof</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>OnGoing</td>
+                    <td><ProgressBar label={`${30}%`} style={{marginBottom:"0.5rem"}} animated variant={"danger"} now={30} /></td>
                   </tr>
                   <tr>
-                    <td>11</td>
+                    <td>16</td>
+                    <td>AISEC</td>
                     <td>Abdelraof</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>OnGoing</td>
+                    <td><ProgressBar label={`${20}%`} style={{marginBottom:"0.5rem"}} animated variant={"danger"} now={20} /></td>
                   </tr>
                 </tbody>
               </Table>

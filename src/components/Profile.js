@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 function Profile({user, loggedin, setUser }) {
-  const [disable, setDisable] = useState({"uname":true, "email":true, "fname":true, "lname":true, "pn":true})
+  const [disable, setDisable] = useState({"uname":true, "email":true, "fname":true, "lname":true, "pn":true, "teamname":true, "teamrole":true})
   const [userChange, setUserchange] = useState(JSON.parse(JSON.stringify(user)))
   const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ function Profile({user, loggedin, setUser }) {
   }
 
   const handleSave = () => {
-    setDisable({"uname":true, "email":true, "fname":true, "lname":true, "pn":true});
+    setDisable({"uname":true, "email":true, "fname":true, "lname":true, "pn":true, "teamname":true, "teamrole":true});
     fetch(`http://localhost:3001/api/users/modify/${user.email}`, {
             method: 'POST',
             body: JSON.stringify(userChange),
@@ -46,7 +46,7 @@ function Profile({user, loggedin, setUser }) {
         <Row>
           <Container id="profilebox">
           <Button onClick={handleSave} variant="success" style={{marginTop:"2rem", float:"right"}}>Save</Button>
-          <Form style={{marginTop:"6rem"}}>
+          <Form style={{marginTop:"5rem"}}>
             <Row style={{marginTop:"2rem"}}>
               <Col>
               <Form.Label style={{display:"block"}}>Username</Form.Label>
@@ -69,6 +69,16 @@ function Profile({user, loggedin, setUser }) {
               <Form.Label style={{display:"block"}}>Last Name</Form.Label>
               <Form.Control onChange={(e)=>{handleChange(e, "lname")}} style={{width:"90%", display:"inline"}} disabled={disable["lname"]} required value={userChange.lname} type="text" placeholder="Enter Last Name" name={"lname"}/>
               <Button onClick={()=>{handleEdit("lname")}} style={{marginLeft:"1rem"}} variant="dark"><AiFillEdit/></Button>
+              </Col>
+            </Row>
+            <Row style={{marginTop:"3rem"}}>
+            <Col>
+              <Form.Label style={{display:"block", textAlign:"center"}}>Team Name</Form.Label>
+              <Form.Control style={{width:"100%", display:"inline", textAlign:"center"}} disabled={disable["teamname"]} required value={userChange.teamName} type="text" name={"teamname"}/>
+              </Col>
+              <Col>
+              <Form.Label style={{display:"block", textAlign:"center"}}>Role</Form.Label>
+              <Form.Control style={{width:"100%", display:"inline", textAlign:"center"}} disabled={disable["teamrole"]} required value={userChange.teamRole} type="text" name={"teamrole"}/>
               </Col>
             </Row>
             <Row style={{marginTop:"2rem"}}>

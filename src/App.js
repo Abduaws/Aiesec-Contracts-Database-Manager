@@ -13,6 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { useState } from 'react'
 import { Offcanvas } from 'react-bootstrap' 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import Companies from './components/Companies'
 
 function App() {
   const [user, setUser] = useState({username:"Noob", password:"", email:"", fname: "John", lname: "Doe", rank: 0, completedcontracts: 0, failedcontracts: 0, ongoingcontracts: 0, pn:"000000000"});
@@ -34,6 +35,7 @@ function App() {
                 <Route exact path="/" element={<Login setLoggedin={setLoggedin} setUser={setUser} showlogin={showlogin} setShowlogin={setShowlogin}/>}/>
                 <Route path="/Dashboard" element={<Dashboard loggedin={loggedin} user={user}/>}/>
                 <Route path="/Contracts" element={<Contracts loggedin={loggedin}/>}/>
+                <Route path="/Companies" element={<Companies loggedin={loggedin}/>}/>
                 <Route path="/Leaderboard" element={<Leaderboard loggedin={loggedin} user={user}/>}/>
                 <Route path="/Profile" element={<Profile setUser={setUser} loggedin={loggedin} user={user}/>}/>
                 <Route path="*" element={<Navigate to="/"/>}/>

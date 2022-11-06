@@ -3,6 +3,7 @@ import { ProSidebarProvider, Sidebar, Menu, MenuItem } from 'react-pro-sidebar'
 import { BsFillBarChartFill, BsFillPersonFill } from 'react-icons/bs'
 import { AiFillDashboard, AiOutlinePoweroff } from 'react-icons/ai'
 import { FaFileContract } from 'react-icons/fa'
+import { GiFactory } from 'react-icons/gi'
 import { Link, useNavigate } from 'react-router-dom'
 
 function SideBar({ setShowlogin, setLoggedin }) {
@@ -20,6 +21,9 @@ function SideBar({ setShowlogin, setLoggedin }) {
           </MenuItem>
           <MenuItem as={Link} to="/Contracts" id='myanim' icon={<FaFileContract/>}>
             Contracts
+          </MenuItem>
+          <MenuItem as={Link} to="/Companies" id='myanim' icon={<GiFactory/>}>
+            Companies
           </MenuItem>
           <MenuItem as={Link} to="/Profile" id='myanim' icon={<BsFillPersonFill/>}>
             Profile

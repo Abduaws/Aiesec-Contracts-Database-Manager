@@ -70,7 +70,38 @@ const contractSchema = new Schema({
     contractOpportunitiesDetails:{
         type:[String],
         required:true
-    }
+    },
+
+    contacted:{
+        type:Boolean,
+        required:true
+    },
+    
+    interseted:{
+        type:Boolean,
+        default:false
+    },
+
+    visted:{
+        type:Boolean,
+        default:false
+    },
+
+    contactDone:{
+        type:Boolean,
+        default:false
+    },
+
+    status:{
+        type:String,
+        default:"Contacted"
+    },
+
+    No_Of_Slots:{
+        type:Number,
+        min:0,
+        max:3
+    },
 }, { timestamps: true });
 
 const Contract = mongoose.model('contract', contractSchema)
