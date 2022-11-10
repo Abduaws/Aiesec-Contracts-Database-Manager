@@ -1,21 +1,29 @@
 import React from 'react'
-import { Container, Row, Col, Table, ProgressBar, Button, Form, Nav, Navbar } from 'react-bootstrap'
+import { Container, Row, Col, Table, ProgressBar, Button, Form, Nav, Navbar, Modal } from 'react-bootstrap'
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { motion } from "framer-motion"
 import { FaSearch } from 'react-icons/fa'
+import { AiFillEdit } from 'react-icons/ai'
+import ContractDetails from './ContractDetails';
 
 function Contracts({loggedin}) {
   const [disable, setDisable] = useState(true);
   const [width, setWidth] = useState(0);
+  const [show, setShow] = useState(false);
   const navigate = useNavigate();
+
+  const HandleRowClick = (url) => {
+    
+  }
 
   useEffect(()=>{
     if(!loggedin){navigate('/')}
   })
   return (
     <div>
-      <Container style={{width:"95%", marginTop:"-1rem", padding:"0", overflow:"scroll", height:"90vh"}} id="contractbox" fluid>
+      <ContractDetails show={show} setShow={setShow}/>
+      <Container className='newScroll' style={{width:"95%", marginTop:"-1rem", padding:"0", overflowY:"scroll", overflowX:"hidden", height:"90vh"}} id="contractbox" fluid>
           <Row style={{marginTop:"0.5rem"}}>
               <Col>
               <div style={{border:"4px solid #212529", borderRadius:"2%", background:"#212529", height:"98%"}}>
@@ -51,7 +59,7 @@ function Contracts({loggedin}) {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  <tr onClick={()=>{setShow(true)}}>
                     <td>1</td>
                     <td>AISEC</td>
                     <td>Abduaws</td>

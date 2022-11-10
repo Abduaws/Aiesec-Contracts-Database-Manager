@@ -94,7 +94,7 @@ function Login({setShowlogin, showlogin, setUser, setLoggedin}) {
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label><span style={{float:"right", marginRight:"0.5rem", color:"#dc3545"}}>{errMSG["password"]}</span>
-            <Form.Control isInvalid={isInvalid["password"]} required onChange={(e)=>{setPassword(e.target.value);handleChange()}} value={password} type={passtype} placeholder="Enter Password" name={"password"} style={{width:"90%", display:"inline"}}/>
+            <Form.Control onKeyDown={(e)=>{if(e.code === "Enter"){handleLogin()}}} isInvalid={isInvalid["password"]} required onChange={(e)=>{setPassword(e.target.value);handleChange()}} value={password} type={passtype} placeholder="Enter Password" name={"password"} style={{width:"90%", display:"inline"}}/>
             <Button onClick={()=>{(passtype==="text") ? setPasstype("password") : setPasstype("text")}} variant="outline-light" style={{float:"right", verticalAlign:"middle"}}>{(passtype==="text") && <AiFillEye/>}{(passtype!=="text") && <AiFillEyeInvisible/>}</Button>
             </Form.Group>
             <Button variant="light" onClick={handleLogin}>Login</Button>

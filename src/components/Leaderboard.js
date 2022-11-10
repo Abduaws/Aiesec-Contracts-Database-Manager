@@ -20,7 +20,7 @@ function Leaderboard({user, loggedin}) {
           </Col>
         </Row>
         <Row>
-          <Container style={{width:"85%",overflow:"scroll"}} id="profilebox">
+          <Container className="newScroll" style={{width:"85%", overflowY:"scroll", overflowX:"hidden"}} id="profilebox">
           <Row style={{marginTop:"0.5rem"}}>
               <Col>
               <div style={{border:"4px solid #212529", borderRadius:"2%", background:"#212529", height:"98%"}}>

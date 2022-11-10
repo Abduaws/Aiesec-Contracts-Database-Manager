@@ -1,13 +1,15 @@
 import React from 'react'
-import { Container, Row, Col, Table, ProgressBar, Button, Form, Nav, Navbar } from 'react-bootstrap'
+import { Container, Row, Col, Table, Button, Form, Nav, Navbar } from 'react-bootstrap'
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { motion } from "framer-motion"
 import { FaSearch } from 'react-icons/fa'
+import CompanyDetails from './CompanyDetails'
 
 function Companies({loggedin}) {
   const [disable, setDisable] = useState(true);
   const [width, setWidth] = useState(0);
+  const [show, setShow] = useState(false);
   const navigate = useNavigate();
 
   useEffect(()=>{
@@ -15,7 +17,8 @@ function Companies({loggedin}) {
   })
   return (
     <div>
-      <Container style={{width:"95%", marginTop:"-1rem", padding:"0", overflow:"scroll", height:"90vh"}} id="contractbox" fluid>
+      <CompanyDetails show={show} setShow={setShow}/>
+      <Container className='newScroll' style={{width:"95%", marginTop:"-1rem", padding:"0", overflowY:"scroll", overflowX:"hidden", height:"90vh"}} id="contractbox" fluid>
           <Row style={{marginTop:"0.5rem"}}>
               <Col>
               <div style={{border:"4px solid #212529", borderRadius:"2%", background:"#212529", height:"98%"}}>
@@ -51,7 +54,7 @@ function Companies({loggedin}) {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  <tr onClick={()=>{setShow(true)}}>
                     <td>1</td>
                     <td>AISEC</td>
                     <td>Development of youth</td>

@@ -23,7 +23,7 @@ function App() {
   const toggleShow = () => setSidebarshow((s) => !s);
   return (
     <BrowserRouter>
-    <div className="App" style={{overflow:"scroll", background:"#F3F3F9"}}>
+    <div className="App newScroll" style={{overflowY:"scroll", overflowX:"hidden", background:"#F3F3F9"}}>
       <Navigation toggleShow={toggleShow}></Navigation> 
       <Offcanvas id="myanim" backdrop={false} scroll={true} show={sidebarshow}style={{margin:"0", padding:"0", width:"250px", overflow:"hidden", border:"1px solid #2A3042"}}>
         <Offcanvas.Body style={{margin:"0", padding:"0", overflow:"hidden"}}>
