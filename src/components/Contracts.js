@@ -3,8 +3,7 @@ import { Container, Row, Col, Table, ProgressBar, Button, Form, Nav, Navbar, Mod
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { motion } from "framer-motion"
-import { FaSearch } from 'react-icons/fa'
-import { AiFillEdit } from 'react-icons/ai'
+import { FaSearch, FaPlus } from 'react-icons/fa'
 import ContractDetails from './ContractDetails';
 
 function Contracts({loggedin}) {
@@ -46,6 +45,7 @@ function Contracts({loggedin}) {
                           </Form>
                           </motion.div>
                           <Button onClick={()=>{(width===300) ? setWidth(0) : setWidth(300);setDisable(!disable);console.log(disable)}} style={{margin:"0", border:"1px solid #a6b0cf", marginRight:"1rem"}} variant='light'><FaSearch/></Button>
+                          <Button style={{margin:"0", border:"1px solid #a6b0cf", marginRight:"1rem"}} variant='light'><FaPlus style={{paddingBottom:"0.25rem"}}/></Button>
                         </Nav>  
                       </Navbar>
                     </th>

@@ -36,7 +36,7 @@ function Login({setShowlogin, showlogin, setUser, setLoggedin}) {
         })
         setScale(0);setTimeout(()=>{setShowlogin(false);setScale(1)}, 200)
         setLoggedin(true)
-        setTimeout(()=>{navigate("/Profile")}, 400)
+        setTimeout(()=>{navigate("/Dashboard")}, 400)
       }
       else{
         setIsivalid({"email":true,"password":true})
@@ -61,7 +61,7 @@ function Login({setShowlogin, showlogin, setUser, setLoggedin}) {
           setErrMSG({"email":"","password":""})
           setScale(0);setTimeout(()=>{setShowlogin(false);setScale(1)}, 200)
           setLoggedin(true)
-          setTimeout(()=>{navigate("/Profile")}, 400)
+          setTimeout(()=>{navigate("/Dashboard")}, 400)
         }
         else{
           setIsivalid({"email":true,"password":isInvalid["password"]})

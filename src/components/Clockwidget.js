@@ -22,8 +22,8 @@ function Clockwidget() {
                 <div style={{fontSize:"x-large"}}>{Intl.DateTimeFormat('en-US', {month:"long"}).format(value)} {value.getDate()} {value.getFullYear()}</div>
                 {value.getHours()>12 ? (value.getHours()-12) : value.getHours()}:{value.getMinutes()} {(value.getHours()>12) ? "PM" : "AM"}
             </Col>
-            <Col xs={2}></Col>
-            <Col style={{paddingBottom:"0.25rem", paddingTop:"0.25rem"}}>
+            <Col xs={1}></Col>
+            <Col style={{paddingBottom:"0.25rem", paddingTop:"0.25rem", paddingLeft:"1.25rem"}}>
                 <Clock value={value}/>
             </Col>
         </Row>
