@@ -25,20 +25,11 @@ const companySchema = new Schema({
         required:true
     },
     
-    interseted:{
-        type:Boolean,
-        
-    },
+    interested:Boolean,
 
-    visted:{
-        type:Boolean,
-        
-    },
+    visted:Boolean,
 
-    contactDone:{
-        type:Boolean,
-        
-    },
+    contactDone:Boolean,
 
     No_Of_Slots:{
         type:Number,

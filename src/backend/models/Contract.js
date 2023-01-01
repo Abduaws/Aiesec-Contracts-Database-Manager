@@ -77,7 +77,7 @@ const contractSchema = new Schema({
         required:true
     },
     
-    interseted:{
+    interested:{
         type:Boolean,
         default:false
     },
