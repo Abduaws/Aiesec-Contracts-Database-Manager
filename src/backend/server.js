@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoutes');
 const contractRoutes = require('./routes/contractRoutes');
+const companyRoutes = require('./routes/companyRoutes');
 const dotenv = require('dotenv');
 const cors = require('cors');
 dotenv.config();
@@ -22,3 +23,4 @@ app.use(cors({origin:"*", credentials:true, optionsSuccessStatus:200}));
 
 app.use('/api/users', userRoutes);
 app.use('/api/contracts', contractRoutes);
+app.use('/api/companies', companyRoutes);
