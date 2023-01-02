@@ -34,6 +34,7 @@ function Contracts({loggedin}) {
   })
   const navigate = useNavigate();
 
+  // Get data of currently Selected Row and send it ti modal
   const getData = (e) => {
     let tata = JSON.parse(JSON.stringify(contractData))
     e = e.target.parentNode.firstChild;

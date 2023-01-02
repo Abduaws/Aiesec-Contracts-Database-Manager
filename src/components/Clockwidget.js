@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 function Clockwidget() {
     const [value, setValue] = useState(new Date());
 
+    //Update Date and Time in Real Time
     useEffect(() => {
         const interval = setInterval(() => setValue(new Date()), 1000);
 

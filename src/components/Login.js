@@ -14,7 +14,7 @@ function Login({setShowlogin, showlogin, setUser, setLoggedin}) {
   const [errMSG, setErrMSG] = useState({"email":"","password":""});
   const navigate = useNavigate();
 
-  
+  // Handles User Login and checks if account doesn't exist in Database or incorrect password
   const handleLogin = () => {
     if(!email && !password){setIsivalid({"email":true,"password":true});setErrMSG({"email":"Required","password":"Required"});return}
     if(!email){setIsivalid({"email":true,"password":isInvalid["password"]});setErrMSG({"email":"Required","password":errMSG["password"]});return}
@@ -45,6 +45,7 @@ function Login({setShowlogin, showlogin, setUser, setLoggedin}) {
     })})
   }
   
+  // Handles User Signup and checks if account already exist in Database
   const handleSignup = () => {
     if(!email && !password){setIsivalid({"email":true,"password":true});setErrMSG({"email":"Required","password":"Required"});return}
     if(!email){setIsivalid({"email":true,"password":isInvalid["password"]});setErrMSG({"email":"Required","password":errMSG["password"]});return}
@@ -75,6 +76,7 @@ function Login({setShowlogin, showlogin, setUser, setLoggedin}) {
     }
   }
 
+  // Reset state after User reenter data
   const handleChange = (e)=>{
     setIsivalid({"email":false,"password":false})
     setErrMSG({"email":"","password":""})

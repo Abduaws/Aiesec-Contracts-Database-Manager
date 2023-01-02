@@ -28,6 +28,7 @@ function Companies({loggedin}) {
     updates:""});    
   const navigate = useNavigate();
 
+  // Get data of currently Selected Row and send it ti modal
   const getData = (e) => {
     let tata = JSON.parse(JSON.stringify(companyData))
     e = e.target.parentNode.firstChild;

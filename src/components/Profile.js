@@ -10,18 +10,21 @@ function Profile({user, loggedin, setUser }) {
   const [userChange, setUserchange] = useState(JSON.parse(JSON.stringify(user)))
   const navigate = useNavigate();
 
+  // Enable Editing for Certain User Info
   const handleEdit = (area) => {
     let tempDisable = JSON.parse(JSON.stringify(disable))
     tempDisable[area] = false
     setDisable(tempDisable)
   }
 
+  // Change Current value for User Info Before Saving
   const handleChange = (e, area) => {
     let tempuser = JSON.parse(JSON.stringify(userChange))
     tempuser[area] = e.target.value
     setUserchange(tempuser)
   }
 
+  // Update User Info in Database
   const handleSave = () => {
     setDisable({"uname":true, "email":true, "fname":true, "lname":true, "pn":true, "teamname":true, "teamrole":true});
     fetch(`http://localhost:3001/api/users/modify/${user.email}`, {

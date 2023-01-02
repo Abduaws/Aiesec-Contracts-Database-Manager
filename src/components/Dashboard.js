@@ -16,6 +16,7 @@ function Dashboard({user, loggedin}) {
   const [variant, setVariant] = useState("danger")
   const navigate = useNavigate();
 
+  // Function used to animate Progress bars for testing when User Clicks the circle progress bar
   const handleprogress = () => {
     animate(0, 100, {duration:14, onUpdate: num => {setPercentage(Math.ceil(num));
       if(num>64){setColor("green");setVariant("success")}else if(num>32){setColor("gold");setVariant("warning")}else{setColor("red");setVariant("danger")}
