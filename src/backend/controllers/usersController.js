@@ -1,8 +1,11 @@
 const User = require("../models/User")
 
+//Gets all Users
 const users_get = async (req, res) => {
     res.send(JSON.stringify(await User.find()))
 }
+
+//Creates a new user based on sent data
 const user_create = async (req, res) => {
     const userdata = req.body
     if(await User.exists({email:userdata.email})){
@@ -12,7 +15,9 @@ const user_create = async (req, res) => {
         await User.create({email:userdata.email, password:userdata.password});
         res.send(JSON.stringify({status:"OK"}))
     }
-}    
+}  
+
+//Get user details for a certain user
 const user_details = async (req, res) => {
     const email = req.params.email
     const user = await User.where("email").equals(email)
@@ -20,6 +25,8 @@ const user_details = async (req, res) => {
         res.send(JSON.stringify(user))
     }
 }
+
+//Modify data for certain user
 const user_modify = async (req, res) => {
     const userdata = req.body
     if(await User.exists({email:userdata.email})){
@@ -32,6 +39,7 @@ const user_modify = async (req, res) => {
     }
 }
 
+//Authinticate user login/signup
 const user_authenticate = async (req, res) => {
     const userdata = req.body
     const user = await User.where("email").equals(userdata.email)
